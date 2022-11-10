@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE videoclub [
+<!ELEMENT videoclub (factura*)>
+<!ELEMENT factura (datos_cliente, datos_ticket)>
+<!ELEMENT datos_cliente (nombre, primer_apellido, segundo_apellido, dni, telefono+)>   
+    <!ATTLIST datos_cliente identificador ID #REQUIRED>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT primer_apellido (#PCDATA)>
+<!ELEMENT segundo_apellido (#PCDATA)>
+<!ELEMENT dni (#PCDATA)>
+<!ELEMENT telefono (#PCDATA)>
+<!ELEMENT datos_ticket (resguardo+,(alquileres | compras | (alquileres, compras)))>
+<!ELEMENT resguardo (forma_de_pago, importe_total)>
+<!ELEMENT forma_pago (#PCDATA)>
+<!ELEMENT importe_total (#PCDATA)>
+<!ELEMENT alquileres (peliculas, fecha_alquiler)>
+<!ELEMENT fecha_alquiler (#PCDATA)>
+<!ELEMENT peliculas (titulo, genero, duracion, actores)>
+    <!ATTLIST peliculas idPelicula CDATA #REQUIRED>
+    <!ATTLIST peliculas valoracion CDATA #REQUIRED>
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT genero (#PCDATA)>
+<!ELEMENT duracion (#PCDATA)>
+<!ELEMENT actores (actor1+, actor2+, actor3+)>
+<!ELEMENT actor1 (nombre_actor, apellidos_actor)>
+<!ELEMENT actor2 (nombre_actor, apellidos_actor)>
+<!ELEMENT actor3 (nombre_actor, apellidos_actor)>
+<!ELEMENT compras (dvds | cintas | (dvd, cintas))>
+<!ELEMENT dvds (dvd+)>
+<!ELEMENT dvd (extras?, titulo, fecha_salida_mercado)>
+<!ELEMENT extras (#PCDATA)>
+<!ELEMENT fecha_salida_mercado (#PCDATA)>
+<!ELEMENT cintas (cinta+)>
+<!ELEMENT cinta (titulo, formato, rebobinado?)>
+<!ELEMENT formato (#PCDATA)>
+<!ELEMENT rebobinado EMPTY>
